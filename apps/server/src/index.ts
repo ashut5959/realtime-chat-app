@@ -1,7 +1,8 @@
 import http from "http";
 import SockerService from "./services/socket";
-
+import { startMessageConsumer } from "./services/kafka";
 async function init() {
+  startMessageConsumer();
   const socketService = new SockerService();
   const httpServer = http.createServer();
   const PORT = process.env.PORT ? process.env.PORT : 8000;
